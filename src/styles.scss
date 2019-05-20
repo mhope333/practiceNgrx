@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+// this is used on material html elements (which are used in the about.component)???????
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+// custom theming
+@import '~@angular/material/theming';
+@include mat-core();
+
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-warn:    mat-palette($mat-red); // always defaults red
+
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+@include angular-material-theme($candy-app-theme);
+
+.dark-theme {
+  $primary-dark: mat-palette($mat-pink, 700);
+  $accent-dark: mat-palette($mat-green);
+  $warn-dark: mat-palette($mat-red);
+
+  $theme-dark: mat-dark-theme($primary-dark, $accent-dark, $warn-dark);
+
+  @include angular-material-theme($theme-dark);
+}
+//
+
+// css
+body, html {
+    height: 100%;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Montserrat';
+    font-size: 18px;
+    // margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1.3em;
+    display: grid;
+    grid-template-columns: 30% auto;
+
+    a {
+        color: white;
+    }
+}
+
+section {
+    width: 100%;
+    margin: 0 auto;
+    // padding: 2em;
+}
