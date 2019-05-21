@@ -1,7 +1,9 @@
 import { User } from './user';
 
+// this is the Applications Store State: (store is the appState Object{})
 export interface AppState {
-  // users: { users: User[] };
-  readonly users: User[];
-
+  // user slice of state object in the store will contain the users Array of objects
+  // usersStateSlice: { users: User[] };
+  // readonly users: { users: User[] }; // ????
+  readonly users: User[]; // ???
 }

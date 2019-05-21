@@ -15,14 +15,6 @@ export class UserEffects {
         private userService: UsersService
     ) { }
 
-    // tslint:disable-next-line:member-ordering
-    // @Effect() loadUsers$ = this.actions$
-    //     .ofType(userActions.LOAD_USERS)
-    //     .switchMap(() => {
-    //         return this.userService.getUsers()
-    //           .map(users => new userActions.LoadUsersSuccessAction(users));
-    //     });
-
     @Effect() loadUsers$ = this.actions$.pipe(
         ofType(userActions.LOAD_USERS),
         switchMap(() => this.userService.getUsers()
