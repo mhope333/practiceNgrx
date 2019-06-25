@@ -16,11 +16,12 @@ export function userReducer(state = initialState, action: fromUsers.Actions): St
               users: action.payload
             };
         }
-        // case fromUsers.: {
-        //     return state = {
-        //         companies: state.companies.filter(company => company.id !== action.payload)
-        //     };
-        // }
+        case fromUsers.DELETE_USER: {
+            return state = {
+                // filter the array keeping only users with ids not provided in payload (in our store).
+                users: state.users.filter(user => user.id !== action.payload)
+            };
+        }
         default: {
             return state;
         }

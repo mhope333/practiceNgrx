@@ -1,7 +1,6 @@
 <h1>Users</h1>
 
 <ul *ngIf="users$">
-  <!-- ??? -->
   <li *ngFor="let user of users$ | async">
     <img [src]="user.avatar">
     <p>{{ user.first_name }} {{ user.last_name }}</p>
@@ -11,3 +10,7 @@
 <p>
   users works!
 </p>
+
+<button mat-flat-button color="primary" (click)="deleteUser()">
+  Remove last user
+</button>

@@ -4,9 +4,7 @@ import { map, switchMap, catchError } from 'rxjs/operators';
 
 import { UsersService } from '../users/users.service';
 import * as userActions from './../actions/user.actions';
-import { EMPTY } from 'rxjs';
 import { User } from '../models';
-// import { DeleteCompanySuccessAction } from '../actions/company.actions';
 
 @Injectable()
 export class UserEffects {
@@ -24,13 +22,4 @@ export class UserEffects {
           )
         )
     );
-
-    // // tslint:disable-next-line:member-ordering
-    // @Effect() deleteCompany$ = this.actions$
-    //     .ofType(companyActions.DELETE_COMPANY)
-    //     .switchMap((action: companyActions.DeleteCompanyAction) => {
-    //         return this.companyService.deleteCompany(action.payload)
-    //             .map(company => new companyActions.DeleteCompanySuccessAction(company.id));
-    //     });
-
 }

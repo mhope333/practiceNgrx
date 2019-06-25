@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './users.service';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { User } from '../models';
@@ -13,21 +12,27 @@ import * as userActions from '../actions/user.actions';
 })
 export class UsersComponent implements OnInit {
 
-  users$: Observable<User[]>;
+  // here we go to the store/AppState and obtain the users Array from usersStateSlice object
+  users$: Observable<User[]> = this.store.select(state => state.users.users);
+  lastUserId: number;
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
     this.loadUsers();
-    // here we go to the store/AppState and obtain the users Array from usersStateSlice object
-    this.users$ = this.store.select(state => state.users.users);
-
-    console.log(this.users$, "11111111111111111111111111111111");
-
   }
 
   loadUsers() {
     this.store.dispatch(new userActions.LoadUsersAction());
   }
 
+  deleteUser() {
+    this.users$.subscribe(users => {
+      this.lastUserId = users[users.length - 1].id;
+    });
+    this.store.dispatch(new userActions.DeleteUserAction(this.lastUserId));
+  }
+
+  // need to send the modified state to api -> db to update with deleted user
+  // then next time we load users, the deleted user would be gone.
 }
