@@ -33,6 +33,6 @@ export class UsersComponent implements OnInit {
     this.store.dispatch(new userActions.DeleteUserAction(this.lastUserId));
   }
 
-  // need to send the modified state to api -> db to update with deleted user
+  // need to send the modified state to an api -> then db to update with deleted user
   // then next time we load users, the deleted user would be gone.
 }
