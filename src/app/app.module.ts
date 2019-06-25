@@ -28,7 +28,8 @@ import { UsersComponent } from './users/users.component';
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
-    StoreModule.forRoot({users: userReducer}),
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('user', userReducer), // add the user state to store
     EffectsModule.forRoot([UserEffects]),
     StoreDevtoolsModule.instrument({maxAge: 25}) // means it keeps the last 25 states visible in the devTools
   ],

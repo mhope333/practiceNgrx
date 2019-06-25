@@ -13,7 +13,7 @@ import * as userActions from '../actions/user.actions';
 export class UsersComponent implements OnInit {
 
   // here we go to the store/AppState and obtain the users Array from usersStateSlice object
-  users$: Observable<User[]> = this.store.select(state => state.users.users);
+  users$ = this.store.select(state => state.user.users);
   lastUserId: number;
 
   constructor(private store: Store<AppState>) { }

@@ -1,20 +1,25 @@
 import { User } from './../models';
 import * as fromUsers from './../actions/user.actions';
 
-export interface State {
+export interface UserState {
     users: User[];
 }
 
-const initialState: State = {
+const initialState: UserState = {
     users: []
 };
 
-export function userReducer(state = initialState, action: fromUsers.Actions): State {
+export function userReducer(state = initialState, action: fromUsers.Actions): UserState {
     switch (action.type) {
         case fromUsers.LOAD_USERS_SUCCESS: {
-            return state = {
-              users: action.payload
-            };
+          console.log(action);
+          return {
+            ...state,
+            users: action.payload
+          };
+            // return state = {
+            //   users: action.payload
+            // };
         }
         case fromUsers.DELETE_USER: {
             return state = {
