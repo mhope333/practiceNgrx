@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { User } from '../models';
 import { AppState } from '../models/AppState';
 import * as userActions from '../actions/user.actions';
 
@@ -33,6 +31,7 @@ export class UsersComponent implements OnInit {
     this.store.dispatch(new userActions.DeleteUserAction(this.lastUserId));
   }
 
+  // TO DO (on a submit):
   // need to send the modified state to an api -> then db to update with deleted user
   // then next time we load users, the deleted user would be gone.
 }

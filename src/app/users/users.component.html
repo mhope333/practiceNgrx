@@ -1,17 +1,16 @@
-<h1>Users</h1>
 
-<ul *ngIf="users$">
-  <li *ngFor="let user of users$ | async">
-    <img [src]="user.avatar">
-    <p>{{ user.first_name }} {{ user.last_name }}</p>
-  </li>
-</ul>
+<mat-card>
+  <mat-card-title>Users</mat-card-title>
+  <ul *ngIf="users$">
+    <mat-list *ngFor="let user of users$ | async">
+      <div class="content">
+        <img [src]="user.avatar">
+        <p>{{ user.first_name }} {{ user.last_name }}</p>
+    </div>
+    </mat-list>
+  </ul>
 
-<div class="margin">
-  <p>
-    users works!
-  </p>
-  <button mat-flat-button color="primary" (click)="deleteUser()">
+  <button mat-flat-button color="primary" (click)="deleteUser()" class="margin">
     Remove last user
   </button>
-</div>
+</mat-card>

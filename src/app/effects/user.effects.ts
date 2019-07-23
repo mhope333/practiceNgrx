@@ -4,7 +4,6 @@ import { map, switchMap, catchError } from 'rxjs/operators';
 
 import { UsersService } from '../users/users.service';
 import * as userActions from './../actions/user.actions';
-import { User } from '../models';
 
 @Injectable()
 export class UserEffects {
