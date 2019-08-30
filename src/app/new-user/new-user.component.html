@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Add new contact</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="addUserForm">
+    <div class="example-container">
+      <mat-form-field>
+        <mat-select placeholder="Avatar" formControlName="avatar" [(ngModel)]="user.avatar" required>
+          <mat-select-trigger>
+            <mat-icon svgIcon={{user.avatar}}></mat-icon> {{user.avatar}}
+          </mat-select-trigger>
+          <mat-option *ngFor="let avatar of avatars" [value]="avatar">
+            <mat-icon svgIcon={{avatar}}></mat-icon> {{avatar}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <!-- below we bind the input of this field to user.first_name -->
+        <input matInput placeholder="First Name" formControlName="first_name" [(ngModel)]="user.first_name" required>
+        <!-- TO DO: add custom errors here -->
+        <!-- <mat-error *ngIf="addUserForm.get('first_name').hasError('required')">First name is required</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="last_name" [(ngModel)]="user.last_name" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Email" [(ngModel)]="user.email">
+      </mat-form-field>
+
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="primary" [disabled]="!addUserForm.valid" (click)="saveUser()"> Save
+    <mat-icon>save</mat-icon>
+  </button>
+  <button mat-button color="primary" (click)="cancel()"> Cancel
+    <mat-icon>cancel</mat-icon>
+  </button>
+</mat-dialog-actions>

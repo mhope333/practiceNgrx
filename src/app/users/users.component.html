@@ -1,16 +1,30 @@
 
 <mat-card>
   <mat-card-title>Users</mat-card-title>
+
   <ul *ngIf="users$">
     <mat-list *ngFor="let user of users$ | async">
+
       <div class="content">
-        <img [src]="user.avatar">
+        <div *ngIf="user.userAdded === true; else elseBlock" class="content">
+          <mat-icon mat-card-avatar svgIcon="{{user.avatar}}"></mat-icon>
+        </div>
+        <!-- content to render when condition is false. -->
+        <ng-template #elseBlock>
+            <img [src]="user.avatar">
+        </ng-template>
         <p>{{ user.first_name }} {{ user.last_name }}</p>
-    </div>
+      </div>
+
     </mat-list>
   </ul>
 
   <button mat-flat-button color="primary" (click)="deleteUser()" class="margin">
     Remove last user
   </button>
+
+  <button mat-flat-button color="primary" (click)="addUser()" class="margin">
+    Add a new user
+  </button>
+
 </mat-card>

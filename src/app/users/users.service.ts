@@ -13,7 +13,6 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-
     return this.http.get<HttpData>('https://reqres.in/api/users').pipe( // http returns an object with 'data' field
       map(result => result.data) // returns 'result.data': [{user},{user},{user}] - array of user objects
     );
