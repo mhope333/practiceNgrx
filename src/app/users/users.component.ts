@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../models/AppState';
 import * as userActions from '../actions/user.actions';
-import { MatDialog, MatSnackBar, MatSnackBarRef, SimpleSnackBar} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { NewUserComponent } from '../new-user/new-user.component';
 
 @Component({

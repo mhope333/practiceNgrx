@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { User } from '../models';
 import { Validators, FormBuilder } from '@angular/forms';
 import { v4 as uuid } from 'uuid';
