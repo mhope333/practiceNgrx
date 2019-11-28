@@ -60,6 +60,6 @@ export class UsersComponent implements OnInit {
   }
 
   // TO DO? (on a submit):
-  // need to send the modified state to an api -> then loader to update db with deleted user
-  // then next time we load users, the deleted user would be gone.
+  // need to send the modified state to an api -> then loader to update db with new/deleted user
+  // then next time we load users, the deleted user would be gone / or be included in the initial loading of users.
 }
