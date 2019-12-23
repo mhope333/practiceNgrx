@@ -28,12 +28,11 @@ export class NewUserComponent implements OnInit {
     private dailogRef: MatDialogRef<NewUserComponent>,
     private formBuilder: FormBuilder
   ) {
-
     this.addUserForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       avatar: ['', Validators.required],
-      email: [''] // ?
+      email: ['']
     });
   }
 
