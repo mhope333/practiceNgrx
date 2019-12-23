@@ -4,9 +4,9 @@
   <form [formGroup]="addUserForm">
     <div class="example-container">
       <mat-form-field>
-        <mat-select placeholder="Avatar" formControlName="avatar" [(ngModel)]="user.avatar" required>
+        <mat-select placeholder="Avatar" formControlName="avatar" [(value)]="selectedAvatar" required>
           <mat-select-trigger>
-            <mat-icon svgIcon={{user.avatar}}></mat-icon> {{user.avatar}}
+            <mat-icon svgIcon={{selectedAvatar}}></mat-icon> {{selectedAvatar}}
           </mat-select-trigger>
           <mat-option *ngFor="let avatar of avatars" [value]="avatar">
             <mat-icon svgIcon={{avatar}}></mat-icon> {{avatar}}
@@ -15,18 +15,18 @@
       </mat-form-field>
 
       <mat-form-field>
-        <!-- below we bind the input of this field to user.first_name -->
-        <input matInput placeholder="First Name" formControlName="first_name" [(ngModel)]="user.first_name" required>
+        <!-- below we bind the input of this field to first_name -->
+        <input matInput placeholder="First Name" formControlName="first_name" required>
         <!-- TO DO: add custom errors here -->
         <!-- <mat-error *ngIf="addUserForm.get('first_name').hasError('required')">First name is required</mat-error> -->
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Last Name" formControlName="last_name" [(ngModel)]="user.last_name" required>
+        <input matInput placeholder="Last Name" formControlName="last_name" required>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Email" [(ngModel)]="user.email">
+        <input matInput placeholder="Email" formControlName="email">
       </mat-form-field>
 
     </div>

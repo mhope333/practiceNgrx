@@ -13,6 +13,14 @@ export class NewUserComponent implements OnInit {
 
   avatars = ['svg-1', 'svg-2', 'svg-3', 'svg-4'];
   user: User;
+  defaultUser = {
+    id: 0,
+    email: '',
+    first_name: '',
+    last_name: '',
+    avatar: '',
+    userAdded: true
+  };
 
   addUserForm: any;
 
@@ -25,27 +33,23 @@ export class NewUserComponent implements OnInit {
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       avatar: ['', Validators.required],
+      email: [''] // ?
     });
   }
 
   ngOnInit() {
-    // this.user = new User(); // ???
-    // remove [ngModel] in html -> go towards reactive forms: https://angular.io/api/forms/FormControlName#use-with-ngmodel
-    // then wont need to define inital user object here.
-    this.user = {
-      id: 0,
-      email: '',
-      first_name: '',
-      last_name: '',
-      avatar: '',
-      userAdded: true
-    };
+    this.user = this.defaultUser;
   }
 
   saveUser() {
     if (this.addUserForm.dirty && this.addUserForm.valid) {
-      this.user.id = uuid(); // id should be number [Math.random()], uuid is a string guid
+      this.user.id = uuid(); // pre generated api users have number ids, uuid is a string guid
       this.user.userAdded = true;
+
+      this.user.avatar = this.addUserForm.value.avatar;
+      this.user.first_name = this.addUserForm.value.first_name;
+      this.user.last_name = this.addUserForm.value.last_name;
+      this.user.email = this.addUserForm.value.email;
 
       this.dailogRef.close(this.user); // pass user back when we click save
     }
