@@ -44,10 +44,11 @@ export class UsersComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(addUserResult => {
       if (addUserResult) {
-        this.openSnackBar('Contact Added', ''); // ADD an undo action? 2nd param HERE!
-        // .onAction().subscribe(() => {
-        //   this.router.navigate(['/user-manager', result.id]);
-        // });
+        this.openSnackBar('Contact Added', 'Undo')
+        .onAction().subscribe(() => {
+          // remove the added contact if user clicks undo...
+          this.store.dispatch(new userActions.DeleteUserAction(addUserResult.id));
+        });
         this.store.dispatch(new userActions.AddUserAction(addUserResult));
       }
     });
