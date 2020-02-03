@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { HttpData } from '../models';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
