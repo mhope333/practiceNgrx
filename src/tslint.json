@@ -1,5 +1,4 @@
 {
-  "extends": "../tslint.json",
   "rules": {
     "callable-types": true,
     "class-name": true,
