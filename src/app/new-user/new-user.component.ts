@@ -11,6 +11,7 @@ import { v4 as uuid } from 'uuid';
 })
 export class NewUserComponent implements OnInit {
 
+  selectedAvatar: string;
   avatars = ['svg-1', 'svg-2', 'svg-3', 'svg-4'];
   user: User;
   defaultUser = {

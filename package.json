@@ -16,9 +16,7 @@
     "@angular/common": "~9.1.7",
     "@angular/compiler": "~9.1.7",
     "@angular/core": "~9.1.7",
-    "@angular/flex-layout": "^7.0.0-beta.23",
     "@angular/forms": "~9.1.7",
-    "@angular/http": "~7.0.0",
     "@angular/material": "^9.2.3",
     "@angular/platform-browser": "~9.1.7",
     "@angular/platform-browser-dynamic": "~9.1.7",
@@ -31,7 +29,7 @@
     "lodash": "^4.17.11",
     "rxjs": "^6.5.5",
     "tslib": "^1.10.0",
-    "uuid": "^3.3.3",
+    "uuid": "^8.0.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
