@@ -1,49 +1,52 @@
-import { TestBed } from '@angular/core/testing';
-// import { Location } from '@angular/common';
+import { TestBed, async } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
-// import { RouterTestingModule } from '@angular/router/testing';
-import { Subject } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { hot, cold } from 'jasmine-marbles';
 
-import {UserEffects} from './user.effects';
-// import * as userActions from '../actions/user.actions';
-// import {usersArray} from '../mocks/users';
 import { UsersService } from '../users/users.service';
+import {UserEffects} from './user.effects';
+import * as userActions from '../actions/user.actions';
+import {usersArray} from '../mocks/users';
 
 describe('User Effects', () => {
   let effects: UserEffects;
-  const actions = new Subject();
-
+  let actions: Observable<any>;
+  let userService: UsersService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      // imports: [RouterTestingModule],
+      imports: [HttpClientTestingModule],
       providers: [
-        { provide: UsersService, useValue: {} },
+        UsersService,
         UserEffects,
         provideMockActions(() => actions)
       ]
     });
 
     effects = TestBed.get(UserEffects);
+    userService = TestBed.get(UsersService);
   });
 
   it('should be created', async() => {
     expect(effects).toBeTruthy();
   });
 
-  // it('should trigger a LoadUsersSuccessAction action as a researcher', done => {
-  //   const action = new userActions.LoadUsersAction();
-  //   // this returns an array of users returned from the service the effect calls
-  //   const reaction = new userActions.LoadUsersSuccessAction(usersArray);
+  it('It should trigger a LoadUsersSuccessAction action', async(() => {
+    spyOn(userService, 'getUsers').and.returnValue(of(usersArray));
+    actions = hot('-a', {
+      a: new userActions.LoadUsersAction()
+    });
 
-  //   effects.loadUsers$.subscribe(_reaction => {
-  //     console.log(_reaction, 'rrrrrrrrrrrrrrrrrrrrrrr');
-  //     expect(_reaction).toEqual(reaction);
-  //     done();
-  //   });
+    const expected = cold('-b', {
+      b: new userActions.LoadUsersSuccessAction(usersArray)
+    });
 
-  //   actions.next(action);
-  // });
+    effects.loadUsers$.subscribe(() => {
+      expect(userService.getUsers).toHaveBeenCalled();
+    });
+
+    expect(effects.loadUsers$).toBeObservable(expected);
+  }));
 });
-
 
