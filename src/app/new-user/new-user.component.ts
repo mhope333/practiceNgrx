@@ -55,7 +55,7 @@ export class NewUserComponent implements OnInit {
   }
 
   cancel() {
-    this.dailogRef.close(null); // pass back nothing as we have cancelled
+    this.dailogRef.close(null);
   }
 
 }

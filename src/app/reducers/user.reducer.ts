@@ -5,14 +5,13 @@ export interface UserState {
     users: User[];
 }
 
-const initialState: UserState = {
+export const initialState: UserState = {
     users: []
 };
 
 export function userReducer(state = initialState, action: fromUsers.Actions): UserState {
     switch (action.type) {
         case fromUsers.LOAD_USERS_SUCCESS: {
-          // console.log(action);
           return {
             ...state,
             users: action.payload

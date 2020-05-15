@@ -13,7 +13,6 @@ import { NewUserComponent } from '../new-user/new-user.component';
 })
 export class UsersComponent implements OnInit {
 
-  // here we go to the store/AppState and obtain the users Array from usersStateSlice object
   users$ = this.store.select(state => state.user.users);
   lastUserId: number;
 

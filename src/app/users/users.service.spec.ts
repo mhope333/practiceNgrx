@@ -13,7 +13,6 @@ describe('users service', () => {
       imports: [
         HttpClientTestingModule,
       ],
-      // declarations: [],
       providers: [
         UsersService,
       ]

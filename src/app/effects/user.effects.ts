@@ -19,6 +19,7 @@ export class UserEffects {
         map(users => {
           return new userActions.LoadUsersSuccessAction(users);
         })
+        // TO DO: Add err handling
         // catchError(() => EMPTY)
       )
     ));

@@ -5,8 +5,8 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Subject } from 'rxjs';
 
 import {UserEffects} from './user.effects';
-import * as userActions from '../actions/user.actions';
-import {usersArray} from '../mocks/users';
+// import * as userActions from '../actions/user.actions';
+// import {usersArray} from '../mocks/users';
 import { UsersService } from '../users/users.service';
 
 describe('User Effects', () => {

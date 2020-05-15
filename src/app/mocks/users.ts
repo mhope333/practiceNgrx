@@ -10,9 +10,9 @@ export const defaultApiUser: User = {
 
 export const addedUser: User = {
   id: 99,
-  email: 'defaultApiUser@email.com',
-  first_name: 'default',
-  last_name: 'apiUser',
+  email: 'defaultUser@email.com',
+  first_name: 'added',
+  last_name: 'user',
   avatar: 'svg-1',
   userAdded: true
 };
