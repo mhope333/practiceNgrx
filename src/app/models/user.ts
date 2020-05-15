@@ -1,6 +1,6 @@
 export interface User {
   id: number;
-  email?: string; // optional for adding a user
+  email?: string;
   first_name: string;
   last_name: string;
   avatar: string;
