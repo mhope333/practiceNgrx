@@ -19,7 +19,7 @@ describe('userReducer', () => {
     const action = new DeleteUserAction(6);
     const state = composedReducer(stateWithUsers , action);
 
-    // TO DO: fix this for some reason even though they are equal they are not read as equal (hence use of stringify)
+    // TO DO: fix this for some reason even though they are equal they are not read as equal (hence use of .stringify)
     expect(JSON.stringify(state.users)).toBe(JSON.stringify(expected));
   });
 

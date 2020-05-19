@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from '../models';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { v4 as uuid } from 'uuid';
 
 @Component({
@@ -15,7 +15,7 @@ export class NewUserComponent implements OnInit {
   avatars = ['svg-1', 'svg-2', 'svg-3', 'svg-4'];
   user: User;
   defaultUser = {
-    id: 0,
+    id: null,
     email: '',
     first_name: '',
     last_name: '',
@@ -23,7 +23,7 @@ export class NewUserComponent implements OnInit {
     userAdded: true
   };
 
-  addUserForm: any;
+  addUserForm: FormGroup;
 
   constructor(
     private dailogRef: MatDialogRef<NewUserComponent>,
@@ -44,7 +44,6 @@ export class NewUserComponent implements OnInit {
   saveUser() {
     if (this.addUserForm.dirty && this.addUserForm.valid) {
       this.user.id = uuid(); // pre generated api users have number ids, uuid is a string guid
-      this.user.userAdded = true;
 
       this.user.avatar = this.addUserForm.value.avatar;
       this.user.first_name = this.addUserForm.value.first_name;
