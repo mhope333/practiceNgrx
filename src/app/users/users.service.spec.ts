@@ -21,8 +21,8 @@ describe('users service', () => {
   }));
 
   beforeEach(() => {
-    httpMock = TestBed.get(HttpTestingController);
-    service = TestBed.get(UsersService);
+    httpMock = TestBed.inject<HttpTestingController>(HttpTestingController);
+    service = TestBed.inject<UsersService>(UsersService);
   });
 
   afterEach(() => {
@@ -50,6 +50,6 @@ describe('users service', () => {
 
     const request = httpMock.expectOne(url); // This will both test for a url, and 'close' the backend call.
     expect(request.request.method).toBe('GET');
-    request.flush(entireApiResponse); // Here we provide a dummy value 'entireResponse' to return from api request
+    request.flush(entireApiResponse);
   });
 });

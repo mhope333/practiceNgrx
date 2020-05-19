@@ -24,8 +24,8 @@ describe('User Effects', () => {
       ]
     });
 
-    effects = TestBed.get(UserEffects);
-    userService = TestBed.get(UsersService);
+    effects = TestBed.inject<UserEffects>(UserEffects);
+    userService = TestBed.inject<UsersService>(UsersService);
   });
 
   it('should be created', async() => {
