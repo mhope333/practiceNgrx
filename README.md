@@ -23,7 +23,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 Check you have docker installed.
 
 1. Build Image `docker build -t practice-ngrx-docker .`
-2. Run Container `docker run -it -p 8000:80 --name practice-ngrx-container practice-ngrx-docker`
+2. Run Container `docker run --rm -it -p 8000:80 --name practice-ngrx-container practice-ngrx-docker`
 - Can use docker compose to run multiple services (containers) at once with ease: `docker-compose -f "docker-compose.yml" up -d --build`
 
 Alternatively you can use the docker vs code extension to run all and more...
