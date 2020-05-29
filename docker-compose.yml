@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  practicengrx:
+    image: practicengrx
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - "8000:80"
